@@ -1,0 +1,319 @@
+/* Font */
+@font-face {
+  font-family: "Rubik";
+  src: url("font/Rubik/Rubik-VariableFont_wght.ttf");
+}
+
+/* Variables */
+:root {
+  --sub-heading: hsl(276, 100%, 81%);
+  --recieved-msg-txt-clr: hsl(276, 55%, 52%);
+  --recieved-msg-bg: hsl(276, 55%, 52%, 0.5);
+  --sent-message-txt-clr: hsl(271, 15%, 43%);
+  --placeholder-txt: hsl(206, 6%, 79%);
+  --main-heading: hsl(271, 36%, 24%);
+  --paragraph-clr: hsl(270, 7%, 64%);
+  --main-gradient: linear-gradient(
+    to right,
+    hsl(293, 100%, 63%),
+    hsl(264, 100%, 61%)
+  );
+  --app-bg: hsl(270, 20%, 96%);
+  --send-btn-bg: hsl(271, 36%, 24%);
+  --radio-btn-outline: hsl(289, 100%, 72%);
+}
+
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+}
+
+body::before {
+  content: "";
+  width: 50%;
+  height: 30%;
+  border-top-right-radius: 9rem;
+  border-bottom-right-radius: 9rem;
+  background-image: var(--main-gradient);
+  transform: rotate(90deg);
+  position: absolute;
+  top: 0;
+  left: -115px;
+  z-index: -1;
+}
+
+body .container {
+  flex: 1;
+}
+
+body .text {
+  flex: 1;
+}
+/* Main */
+
+/* ====================== Phone ====================== */
+/* Phone Header */
+.phone {
+  border: 10px solid white;
+  border-radius: 1rem;
+  overflow: hidden;
+  min-width: 400px;
+  box-shadow: 0 0 10px 0 rgb(157 151 151 / 0.3);
+  position: relative;
+  z-index: 99;
+  max-width: 400px;
+  margin-left: auto;
+}
+
+.phone .phone-header {
+  background-image: var(--main-gradient);
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem 1rem;
+}
+
+.phone .phone-header::before {
+  content: "";
+  width: 45%;
+  height: 20px;
+  background-color: white;
+  border-radius: 0 0 1rem 1rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.phone .phone-header span {
+  display: block;
+}
+
+.phone .phone-header .profile-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone .phone-header .profile-pic img {
+  display: block;
+  max-width: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin: 0 8px;
+}
+
+.phone .phone-header .profile-pic span.name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.phone .phone-header .profile-pic span.status {
+  color: var(--sub-heading);
+}
+.phone .phone-header .more-options span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.phone .phone-header .more-options span ~ span {
+  margin-top: 5px;
+}
+
+/* Phone Body */
+.phone-main {
+  background-color: var(--app-bg);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-main .reciever {
+  align-self: flex-start;
+  width: fit-content;
+}
+
+.phone-main .sender {
+  align-self: flex-end;
+  width: fit-content;
+}
+
+.phone-main .reciever > p,
+.phone-main .sender p {
+  padding: 1rem;
+  border-radius: 1rem;
+  width: fit-content;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  border-top-left-radius: 1.5rem;
+  width: 50%;
+}
+
+.phone-main .reciever > p {
+  color: var(--recieved-msg-txt-clr);
+  background-color: rgb(237, 228, 245);
+}
+
+.phone-main .sender p {
+  background-color: white;
+  color: var(--sent-message-txt-clr);
+  box-shadow: 0 2px 8px 0 rgb(157 151 151 / 0.3);
+  margin-left: auto;
+}
+
+.phone-main .imgs {
+  width: fit-content;
+  margin-left: auto;
+}
+
+.phone-main .imgs img {
+  display: inline-block;
+  border-radius: 8px;
+  max-width: 50px;
+  margin-bottom: 1rem;
+}
+
+.phone-main .choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: var(--main-gradient);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border-top-left-radius: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  width: 70%;
+}
+
+.phone-main .choice .right-half {
+  display: flex;
+  align-items: center;
+}
+
+.phone-main .choice .radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--radio-btn-outline);
+  margin-right: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radio button fill animation on hover */
+.phone-main .choice .radio::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transition: 0.3s;
+}
+
+.phone-main .choice:hover .radio::before {
+  transform: scale(1);
+}
+
+.phone-main .choice span {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Phone footer */
+
+footer form {
+  position: relative;
+}
+
+footer form::after {
+  content: "\f105";
+  font-weight: 900;
+  font-family: "Font Awesome 6 Free";
+  display: block;
+  width: 50px;
+  height: auto;
+  text-align: center;
+  color: white;
+  background-color: var(--send-btn-bg);
+  padding: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+footer form input {
+  border-radius: 2rem;
+  padding: 1.5rem;
+  border: none;
+  outline: none;
+  width: 100%;
+  display: block;
+  margin-top: 2rem;
+  caret-color: var(--placeholder-txt);
+}
+
+footer form input::placeholder {
+  color: var(--placeholder-txt);
+}
+
+@media (max-width: 767px) {
+  body {
+    flex-direction: column;
+  }
+
+  .phone {
+    margin-bottom: 2rem;
+  }
+}
+
+/* ====================== Text ====================== */
+.text {
+  margin: 0 2rem;
+}
+
+.text h1 {
+  margin-bottom: 1rem;
+  color: var(--main-heading);
+  font-size: 2.5rem;
+}
+
+.text p {
+  color: var(--paragraph-clr);
+  line-height: 1.7;
+}
+
+@media (max-width: 767px) {
+  .text {
+    text-align: center;
+  }
+}
